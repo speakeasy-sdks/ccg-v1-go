@@ -7,13 +7,13 @@ package main
 import(
 	"context"
 	"log"
-	"github.com/speakeasy-sdks/ccg-v1-go"
+	ccgv1go "github.com/speakeasy-sdks/ccg-v1-go"
 	"github.com/speakeasy-sdks/ccg-v1-go/pkg/models/shared"
 )
 
 func main() {
-    s := ccgauth.New(
-        ccgauth.WithSecurity(shared.Security{
+    s := ccgv1go.New(
+        ccgv1go.WithSecurity(shared.Security{
             HTTPCCG: "",
         }),
     )
