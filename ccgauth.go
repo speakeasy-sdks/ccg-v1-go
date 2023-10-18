@@ -3,6 +3,7 @@
 package ccgv1go
 
 import (
+	"context"
 	"fmt"
 	"github.com/speakeasy-sdks/ccg-v1-go/pkg/models/shared"
 	"github.com/speakeasy-sdks/ccg-v1-go/pkg/utils"
@@ -42,13 +43,14 @@ func Float64(f float64) *float64 { return &f }
 type sdkConfiguration struct {
 	DefaultClient     HTTPClient
 	SecurityClient    HTTPClient
-	Security          *shared.Security
+	Security          func(context.Context) (interface{}, error)
 	ServerURL         string
 	ServerIndex       int
 	Language          string
 	OpenAPIDocVersion string
 	SDKVersion        string
 	GenVersion        string
+	UserAgent         string
 	RetryConfig       *utils.RetryConfig
 }
 
@@ -106,10 +108,26 @@ func WithClient(client HTTPClient) SDKOption {
 	}
 }
 
+func withSecurity(security interface{}) func(context.Context) (interface{}, error) {
+	return func(context.Context) (interface{}, error) {
+		return &security, nil
+	}
+}
+
 // WithSecurity configures the SDK to use the provided security details
+
 func WithSecurity(security shared.Security) SDKOption {
 	return func(sdk *CcgAuth) {
-		sdk.sdkConfiguration.Security = &security
+		sdk.sdkConfiguration.Security = withSecurity(security)
+	}
+}
+
+// WithSecuritySource configures the SDK to invoke the Security Source function on each method call to determine authentication
+func WithSecuritySource(security func(context.Context) (shared.Security, error)) SDKOption {
+	return func(sdk *CcgAuth) {
+		sdk.sdkConfiguration.Security = func(ctx context.Context) (interface{}, error) {
+			return security(ctx)
+		}
 	}
 }
 
@@ -125,8 +143,9 @@ func New(opts ...SDKOption) *CcgAuth {
 		sdkConfiguration: sdkConfiguration{
 			Language:          "go",
 			OpenAPIDocVersion: "1.0",
-			SDKVersion:        "0.3.1",
-			GenVersion:        "2.125.1",
+			SDKVersion:        "0.4.0",
+			GenVersion:        "2.161.0",
+			UserAgent:         "speakeasy-sdk/go 0.4.0 2.161.0 1.0 github.com/speakeasy-sdks/ccg-v1-go",
 		},
 	}
 	for _, opt := range opts {
