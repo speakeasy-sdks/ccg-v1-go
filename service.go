@@ -14,18 +14,18 @@ import (
 	"strings"
 )
 
-type service struct {
+type Service struct {
 	sdkConfiguration sdkConfiguration
 }
 
-func newService(sdkConfig sdkConfiguration) *service {
-	return &service{
+func newService(sdkConfig sdkConfiguration) *Service {
+	return &Service{
 		sdkConfiguration: sdkConfig,
 	}
 }
 
 // Getstatus - get status
-func (s *service) Getstatus(ctx context.Context) (*operations.GetstatusResponse, error) {
+func (s *Service) Getstatus(ctx context.Context) (*operations.GetstatusResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url := strings.TrimSuffix(baseURL, "/") + "/status"
 

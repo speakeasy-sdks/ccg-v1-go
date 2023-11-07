@@ -1,5 +1,5 @@
 # Service
-(*Service*)
+(*.Service*)
 
 ### Available Operations
 

@@ -45,11 +45,11 @@ func main() {
 ## Available Resources and Operations
 
 
-### [Service](docs/sdks/service/README.md)
+### [.Service](docs/sdks/service/README.md)
 
 * [Getstatus](docs/sdks/service/README.md#getstatus) - get status
 
-### [User](docs/sdks/user/README.md)
+### [.User](docs/sdks/user/README.md)
 
 * [Getuser](docs/sdks/user/README.md#getuser) - get user
 <!-- End SDK Available Operations -->
@@ -86,8 +86,6 @@ Here's an example of one such pagination call:
 # Error Handling
 
 Handling errors in your SDK should largely match your expectations.  All operations return a response object or an error, they will never return both.  When specified by the OpenAPI spec document, the SDK will return the appropriate subclass.
-
-
 <!-- End Error Handling -->
 
 
@@ -106,7 +104,6 @@ You can override the default server globally using the `WithServerIndex` option 
 
 For example:
 
-
 ```go
 package main
 
@@ -119,10 +116,10 @@ import (
 
 func main() {
 	s := ccgv1go.New(
+		ccgv1go.WithServerIndex(1),
 		ccgv1go.WithSecurity(shared.Security{
 			HTTPCCG: "",
 		}),
-		ccgv1go.WithServerIndex(1),
 	)
 
 	ctx := context.Background()
@@ -143,7 +140,6 @@ func main() {
 
 The default server can also be overridden globally using the `WithServerURL` option when initializing the SDK client instance. For example:
 
-
 ```go
 package main
 
@@ -156,10 +152,10 @@ import (
 
 func main() {
 	s := ccgv1go.New(
+		ccgv1go.WithServerURL("http://localhost:3000/oauth2/non-auth-server"),
 		ccgv1go.WithSecurity(shared.Security{
 			HTTPCCG: "",
 		}),
-		ccgv1go.WithServerURL("http://localhost:3000/oauth2/non-auth-server"),
 	)
 
 	ctx := context.Background()
@@ -206,6 +202,53 @@ var (
 
 This can be a convenient way to configure timeouts, cookies, proxies, custom headers, and other low-level configuration.
 <!-- End Custom HTTP Client -->
+
+
+
+<!-- Start Authentication -->
+
+# Authentication
+
+## Per-Client Security Schemes
+
+Your SDK supports the following security scheme globally:
+
+| Name         | Type         | Scheme       |
+| ------------ | ------------ | ------------ |
+| `HTTPCCG`    | oauth2       | OAuth2 token |
+
+You can configure it using the `WithSecurity` option when initializing the SDK client instance. For example:
+
+```go
+package main
+
+import (
+	"context"
+	ccgv1go "github.com/speakeasy-sdks/ccg-v1-go"
+	"github.com/speakeasy-sdks/ccg-v1-go/pkg/models/shared"
+	"log"
+)
+
+func main() {
+	s := ccgv1go.New(
+		ccgv1go.WithSecurity(shared.Security{
+			HTTPCCG: "",
+		}),
+	)
+
+	ctx := context.Background()
+	res, err := s.Service.Getstatus(ctx)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	if res.ServiceStatus != nil {
+		// handle response
+	}
+}
+
+```
+<!-- End Authentication -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

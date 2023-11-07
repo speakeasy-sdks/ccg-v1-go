@@ -14,18 +14,18 @@ import (
 	"strings"
 )
 
-type user struct {
+type User struct {
 	sdkConfiguration sdkConfiguration
 }
 
-func newUser(sdkConfig sdkConfiguration) *user {
-	return &user{
+func newUser(sdkConfig sdkConfiguration) *User {
+	return &User{
 		sdkConfiguration: sdkConfig,
 	}
 }
 
 // Getuser - get user
-func (s *user) Getuser(ctx context.Context) (*operations.GetuserResponse, error) {
+func (s *User) Getuser(ctx context.Context) (*operations.GetuserResponse, error) {
 	baseURL := utils.ReplaceParameters(s.sdkConfiguration.GetServerDetails())
 	url := strings.TrimSuffix(baseURL, "/") + "/user"
 
