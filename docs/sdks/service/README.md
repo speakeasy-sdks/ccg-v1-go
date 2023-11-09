@@ -1,5 +1,5 @@
 # Service
-(*.Service*)
+(*Service*)
 
 ### Available Operations
 
@@ -49,5 +49,7 @@ func main() {
 
 ### Response
 
-**[*operations.GetstatusResponse](../../models/operations/getstatusresponse.md), error**
-
+**[*operations.GetstatusResponse](../../pkg/models/operations/getstatusresponse.md), error**
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |

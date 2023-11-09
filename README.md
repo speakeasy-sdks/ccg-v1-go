@@ -45,11 +45,11 @@ func main() {
 ## Available Resources and Operations
 
 
-### [.Service](docs/sdks/service/README.md)
+### [Service](docs/sdks/service/README.md)
 
 * [Getstatus](docs/sdks/service/README.md#getstatus) - get status
 
-### [.User](docs/sdks/user/README.md)
+### [User](docs/sdks/user/README.md)
 
 * [Getuser](docs/sdks/user/README.md#getuser) - get user
 <!-- End SDK Available Operations -->
@@ -85,7 +85,45 @@ Here's an example of one such pagination call:
 <!-- Start Error Handling -->
 # Error Handling
 
-Handling errors in your SDK should largely match your expectations.  All operations return a response object or an error, they will never return both.  When specified by the OpenAPI spec document, the SDK will return the appropriate subclass.
+Handling errors in this SDK should largely match your expectations.  All operations return a response object or an error, they will never return both.  When specified by the OpenAPI spec document, the SDK will return the appropriate subclass.
+
+| Error Object       | Status Code        | Content Type       |
+| ------------------ | ------------------ | ------------------ |
+| sdkerrors.SDKError | 400-600            | */*                |
+
+
+## Example
+
+```go
+package main
+
+import (
+	"context"
+	ccgv1go "github.com/speakeasy-sdks/ccg-v1-go"
+	"github.com/speakeasy-sdks/ccg-v1-go/pkg/models/shared"
+	"log"
+)
+
+func main() {
+	s := ccgv1go.New(
+		ccgv1go.WithSecurity(shared.Security{
+			HTTPCCG: "",
+		}),
+	)
+
+	ctx := context.Background()
+	res, err := s.Service.Getstatus(ctx)
+	if err != nil {
+
+		var e *sdkerrors.SDKError
+		if errors.As(err, &e) {
+			// handle error
+			log.Fatal(e.Error())
+		}
+	}
+}
+
+```
 <!-- End Error Handling -->
 
 
@@ -206,12 +244,11 @@ This can be a convenient way to configure timeouts, cookies, proxies, custom hea
 
 
 <!-- Start Authentication -->
-
 # Authentication
 
 ## Per-Client Security Schemes
 
-Your SDK supports the following security scheme globally:
+This SDK supports the following security scheme globally:
 
 | Name         | Type         | Scheme       |
 | ------------ | ------------ | ------------ |

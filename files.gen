@@ -24,11 +24,11 @@ pkg/utils/utils.go
 /pkg/models/operations/getuser.go
 /pkg/models/shared/security.go
 USAGE.md
-docs/models/operations/getstatusservicestatus.md
-docs/models/operations/getstatusresponse.md
-docs/models/operations/getuseruser.md
-docs/models/operations/getuserresponse.md
-docs/models/shared/security.md
+docs/pkg/models/operations/getstatusservicestatus.md
+docs/pkg/models/operations/getstatusresponse.md
+docs/pkg/models/operations/getuseruser.md
+docs/pkg/models/operations/getuserresponse.md
+docs/pkg/models/shared/security.md
 docs/sdks/ccgauth/README.md
 docs/sdks/service/README.md
 docs/sdks/user/README.md
