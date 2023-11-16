@@ -15,10 +15,10 @@ get status
 package main
 
 import(
+	"github.com/speakeasy-sdks/ccg-v1-go/pkg/models/shared"
+	ccgv1go "github.com/speakeasy-sdks/ccg-v1-go"
 	"context"
 	"log"
-	ccgv1go "github.com/speakeasy-sdks/ccg-v1-go"
-	"github.com/speakeasy-sdks/ccg-v1-go/pkg/models/shared"
 )
 
 func main() {
