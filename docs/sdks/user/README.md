@@ -24,7 +24,7 @@ import(
 func main() {
     s := ccgv1go.New(
         ccgv1go.WithSecurity(shared.Security{
-            HTTPCCG: "",
+            HTTPCCG: "Bearer <YOUR_ACCESS_TOKEN_HERE>",
         }),
     )
 

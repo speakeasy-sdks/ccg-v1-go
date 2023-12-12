@@ -26,7 +26,7 @@ import (
 func main() {
 	s := ccgv1go.New(
 		ccgv1go.WithSecurity(shared.Security{
-			HTTPCCG: "",
+			HTTPCCG: "Bearer <YOUR_ACCESS_TOKEN_HERE>",
 		}),
 	)
 
@@ -64,6 +64,8 @@ func main() {
 
 <!-- Start Special Types [types] -->
 ## Special Types
+
+
 <!-- End Special Types [types] -->
 
 
@@ -94,7 +96,7 @@ import (
 func main() {
 	s := ccgv1go.New(
 		ccgv1go.WithSecurity(shared.Security{
-			HTTPCCG: "",
+			HTTPCCG: "Bearer <YOUR_ACCESS_TOKEN_HERE>",
 		}),
 	)
 
@@ -143,7 +145,7 @@ func main() {
 	s := ccgv1go.New(
 		ccgv1go.WithServerIndex(1),
 		ccgv1go.WithSecurity(shared.Security{
-			HTTPCCG: "",
+			HTTPCCG: "Bearer <YOUR_ACCESS_TOKEN_HERE>",
 		}),
 	)
 
@@ -178,7 +180,7 @@ func main() {
 	s := ccgv1go.New(
 		ccgv1go.WithServerURL("http://localhost:3000/oauth2/non-auth-server"),
 		ccgv1go.WithSecurity(shared.Security{
-			HTTPCCG: "",
+			HTTPCCG: "Bearer <YOUR_ACCESS_TOKEN_HERE>",
 		}),
 	)
 
@@ -254,7 +256,7 @@ import (
 func main() {
 	s := ccgv1go.New(
 		ccgv1go.WithSecurity(shared.Security{
-			HTTPCCG: "",
+			HTTPCCG: "Bearer <YOUR_ACCESS_TOKEN_HERE>",
 		}),
 	)
 
