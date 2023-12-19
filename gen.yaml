@@ -2,21 +2,23 @@ configVersion: 1.0.0
 management:
   docChecksum: 0f8867eecb609441e54568f0193d015a
   docVersion: "1.0"
-  speakeasyVersion: 1.126.0
-  generationVersion: 2.213.3
+  speakeasyVersion: 1.127.0
+  generationVersion: 2.220.0
 generation:
   comments: {}
   sdkClassName: ccgAuth
   repoURL: https://github.com/speakeasy-sdks/ccg-v1-go.git
   usageSnippets:
     optionalPropertyRendering: withExample
+  fixes:
+    nameResolutionDec2023: false
 features:
   go:
-    core: 3.2.0
+    core: 3.2.2
     globalSecurity: 2.82.3
     globalServerURLs: 2.82.1
 go:
-  version: 0.7.0
+  version: 0.7.1
   clientServerStatusCodesAsErrors: true
   flattenGlobalSecurity: false
   imports:
