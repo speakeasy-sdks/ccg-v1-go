@@ -143,8 +143,8 @@ func New(opts ...SDKOption) *CcgAuth {
 			Language:          "go",
 			OpenAPIDocVersion: "1.0",
 			SDKVersion:        "0.7.1",
-			GenVersion:        "2.220.0",
-			UserAgent:         "speakeasy-sdk/go 0.7.1 2.220.0 1.0 github.com/speakeasy-sdks/ccg-v1-go",
+			GenVersion:        "2.225.2",
+			UserAgent:         "speakeasy-sdk/go 0.7.1 2.225.2 1.0 github.com/speakeasy-sdks/ccg-v1-go",
 		},
 	}
 	for _, opt := range opts {

@@ -1,0 +1,54 @@
+lockVersion: 2.0.0
+id: 22a9ec7f-edc2-4d23-8c23-f8c94607ab10
+management:
+  docChecksum: 0f8867eecb609441e54568f0193d015a
+  docVersion: "1.0"
+  speakeasyVersion: internal
+  generationVersion: 2.225.2
+  releaseVersion: 0.7.1
+  configChecksum: b0b2463a84bc0e6902ad87df6d0234df
+  repoURL: https://github.com/speakeasy-sdks/ccg-v1-go.git
+  repoSubDirectory: .
+  installationURL: https://github.com/speakeasy-sdks/ccg-v1-go
+  published: true
+features:
+  go:
+    core: 3.3.0
+    globalSecurity: 2.82.3
+    globalServerURLs: 2.82.1
+generatedFiles:
+  - service.go
+  - user.go
+  - ccgauth.go
+  - go.mod
+  - go.sum
+  - tests/helpers.go
+  - pkg/models/sdkerrors/sdkerror.go
+  - pkg/types/bigint.go
+  - pkg/types/date.go
+  - pkg/types/datetime.go
+  - pkg/types/decimal.go
+  - pkg/types/pointers.go
+  - pkg/utils/contenttype.go
+  - pkg/utils/form.go
+  - pkg/utils/headers.go
+  - pkg/utils/json.go
+  - pkg/utils/pathparams.go
+  - pkg/utils/queryparams.go
+  - pkg/utils/requestbody.go
+  - pkg/utils/retries.go
+  - pkg/utils/security.go
+  - pkg/utils/utils.go
+  - /pkg/models/operations/getstatus.go
+  - /pkg/models/operations/getuser.go
+  - /pkg/models/shared/security.go
+  - docs/pkg/models/operations/getstatusservicestatus.md
+  - docs/pkg/models/operations/getstatusresponse.md
+  - docs/pkg/models/operations/getuseruser.md
+  - docs/pkg/models/operations/getuserresponse.md
+  - docs/pkg/models/shared/security.md
+  - docs/sdks/ccgauth/README.md
+  - docs/sdks/service/README.md
+  - docs/sdks/user/README.md
+  - USAGE.md
+  - .gitattributes
