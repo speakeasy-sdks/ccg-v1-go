@@ -5,6 +5,7 @@ package ccgv1go
 import (
 	"context"
 	"fmt"
+	"github.com/speakeasy-sdks/ccg-v1-go/internal/hooks"
 	"github.com/speakeasy-sdks/ccg-v1-go/pkg/models/shared"
 	"github.com/speakeasy-sdks/ccg-v1-go/pkg/utils"
 	"net/http"
@@ -52,6 +53,7 @@ type sdkConfiguration struct {
 	GenVersion        string
 	UserAgent         string
 	RetryConfig       *utils.RetryConfig
+	Hooks             *hooks.Hooks
 }
 
 func (c *sdkConfiguration) GetServerDetails() (string, map[string]string) {
@@ -142,14 +144,17 @@ func New(opts ...SDKOption) *CcgAuth {
 		sdkConfiguration: sdkConfiguration{
 			Language:          "go",
 			OpenAPIDocVersion: "1.0",
-			SDKVersion:        "0.8.0",
-			GenVersion:        "2.250.2",
-			UserAgent:         "speakeasy-sdk/go 0.8.0 2.250.2 1.0 github.com/speakeasy-sdks/ccg-v1-go",
+			SDKVersion:        "0.9.0",
+			GenVersion:        "2.258.0",
+			UserAgent:         "speakeasy-sdk/go 0.9.0 2.258.0 1.0 github.com/speakeasy-sdks/ccg-v1-go",
+			Hooks:             hooks.New(),
 		},
 	}
 	for _, opt := range opts {
 		opt(sdk)
 	}
+
+	sdk.sdkConfiguration.DefaultClient = sdk.sdkConfiguration.Hooks.ClientInit(sdk.sdkConfiguration.DefaultClient)
 
 	// Use WithClient to override the default client if you would like to customize the timeout
 	if sdk.sdkConfiguration.DefaultClient == nil {
