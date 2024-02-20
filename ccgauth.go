@@ -144,9 +144,9 @@ func New(opts ...SDKOption) *CcgAuth {
 		sdkConfiguration: sdkConfiguration{
 			Language:          "go",
 			OpenAPIDocVersion: "1.0",
-			SDKVersion:        "0.9.0",
-			GenVersion:        "2.258.0",
-			UserAgent:         "speakeasy-sdk/go 0.9.0 2.258.0 1.0 github.com/speakeasy-sdks/ccg-v1-go",
+			SDKVersion:        "0.9.1",
+			GenVersion:        "2.263.3",
+			UserAgent:         "speakeasy-sdk/go 0.9.1 2.263.3 1.0 github.com/speakeasy-sdks/ccg-v1-go",
 			Hooks:             hooks.New(),
 		},
 	}
