@@ -4,17 +4,17 @@ management:
   docChecksum: 0f8867eecb609441e54568f0193d015a
   docVersion: "1.0"
   speakeasyVersion: internal
-  generationVersion: 2.263.3
-  releaseVersion: 0.9.1
-  configChecksum: f9d2137eab41ee6d2b3cf24e4f042c9b
+  generationVersion: 2.272.4
+  releaseVersion: 0.9.2
+  configChecksum: f12ae3cc397d1d47b8f3b42db5403bfc
   repoURL: https://github.com/speakeasy-sdks/ccg-v1-go.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-sdks/ccg-v1-go
   published: true
 features:
   go:
-    core: 3.4.1
-    globalSecurity: 2.82.6
+    core: 3.4.3
+    globalSecurity: 2.82.7
     globalServerURLs: 2.82.1
 generatedFiles:
   - service.go
