@@ -199,3 +199,13 @@ Based on:
 - [go v0.9.2] .
 ### Releases
 - [Go v0.9.2] https://github.com/speakeasy-sdks/ccg-v1-go/releases/tag/v0.9.2 - .
+
+## 2024-02-27 00:14:47
+### Changes
+Based on:
+- OpenAPI Doc 1.0 
+- Speakeasy CLI 1.194.0 (2.272.7) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [go v0.9.3] .
+### Releases
+- [Go v0.9.3] https://github.com/speakeasy-sdks/ccg-v1-go/releases/tag/v0.9.3 - .
